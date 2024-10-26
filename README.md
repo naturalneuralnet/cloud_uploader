@@ -3,7 +3,7 @@
 
 ## Pre Requisites
 
-The AWS cli must be installed and configured. Please see this guide for additional information.
+The AWS cli must be installed and configured. Please see [this](https://dev.to/binat/install-and-configure-aws-cli-on-windows-1obh) guide for additional information.
 
 A terminal with a bash interpreter is required.
 
@@ -11,11 +11,10 @@ A terminal with a bash interpreter is required.
 
 Download the cli_uploader.bash file
 
-Run it from a bash terminal with two arguments, the first being the filename, the second the name of the bucket
+Run it from a bash terminal with two arguments, the first being the filename, the second the name of the bucket. The bucket name must be unique.
 
 `./cli_uploader.bash filename bucketname`
 
-Use the -h argument to see additional instructions.
 
 ## Example
 
@@ -25,4 +24,10 @@ To upload a file testfile.txt to a bucket named nat-test-1, use the following co
 
 This is the result.
 
+![alt text](image.png)
+
 ## License
+
+You can find the License for this project [here](LICENSE.md)
+
+This project is licensed under the terms of the MIT license.
