@@ -25,12 +25,14 @@ then
     exit 
 fi
 
-# # check if the bucket exists, if not create the bucket
+# check if the bucket exists
 bucketstatus=$(aws s3api head-bucket --bucket "${S3BUCKETNAME}" 2>&1 )
+# search the bucketstatus result for the Not Found result, if the bucket is
+# indeed not found, echo that as a response, then create the bucket
 if echo $bucketstatus | grep -q "Not Found"; 
 then
     echo Bucket Not Found
-    # create the bucket command here
+    # this command creates the bucket
     aws s3 mb s3://$S3BUCKETNAME
 elif echo $bucketstatus | grep -q "Forbidden"; 
 then
@@ -40,12 +42,12 @@ then
     echo Bucket name is less than 3 or greater than 63 characters
 else
     echo Bucket already exists
-    
 fi
 
 #function to upload the file
 UPLOAD() {
     echo Uploading file.
+    # this command copies the file to the bucket
     aws s3 cp $FILENAME s3://$S3BUCKETNAME
     if [[ $? -eq 0 ]]
     then
